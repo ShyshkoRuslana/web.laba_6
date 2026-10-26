@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    font-family: Calibri, Arial, sans-serif;
+}
+
+.wrapper {
+    width: 640px;
+    max-width: 100%;
+}
+
+/* Спільні стилі для всіх блоків */
+.block-1,
+.block-2 {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border: 2px solid #222222;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Блоки 1.1 і 1.2: зелені, видимі завжди */
+.block-1 {
+    height: 60px;
+    line-height: 56px;           /* текст по центру по вертикалі */
+    background-color: #4fad5b;
+    color: #111111;
+    cursor: pointer;
+}
+
+/* Блоки 2.1 і 2.2: сині, спочатку невидимі */
+.block-2 {
+    height: 100px;
+    padding-top: 8px;
+    background-color: #5f8dd3;
+    color: #ffffff;
+    opacity: 0;                  /* приховано, але місце в документі збережено */
+    transition: opacity 0.3s;    /* плавна поява */
+}
+
+/* Наведення на блок 1.x показує сусідній блок 2.x, що стоїть одразу після нього */
+.block-1:hover + .block-2 {
+    opacity: 1;
+}
