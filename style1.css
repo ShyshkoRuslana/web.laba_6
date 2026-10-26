@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    font-family: Calibri, Arial, sans-serif;
+}
+
+/* Область, відносно якої розміщуються блоки */
+.scene {
+    position: relative;
+    width: 700px;
+    height: 380px;
+}
+
+/* Спільні стилі для всіх трьох блоків */
+.block {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    border: 2px solid #222222;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+/* Зелений блок: угорі по центру, найвищий шар */
+.block-green {
+    top: 15px;
+    left: 220px;
+    width: 270px;
+    height: 175px;
+    background-color: #4fad5b;
+    color: #111111;
+    z-index: 3;
+}
+
+/* Синій блок: внизу ліворуч, найнижчий шар */
+.block-blue {
+    top: 185px;
+    left: 20px;
+    width: 310px;
+    height: 170px;
+    background-color: #5f8dd3;
+    color: #ffffff;
+    z-index: 1;
+}
+
+/* Блакитний блок: внизу праворуч, середній шар */
+.block-lightblue {
+    top: 185px;
+    left: 390px;
+    width: 285px;
+    height: 170px;
+    background-color: #a2cbdc;
+    color: #111111;
+    z-index: 2;
+}
