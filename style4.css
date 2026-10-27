@@ -1,0 +1,167 @@
+/* Загальні стилі */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    padding-top: 70px; /* Відступ зверху, щоб контент не ховався під фіксованим горизонтальним меню */
+    padding-left: 240px; /* Відступ зліва для вертикального меню */
+    height: 2000px; /* Зроблено довгим для демонстрації прокрутки та fixed/sticky */
+}
+
+/* ================================================= */
+/* ГОРИЗОНТАЛЬНА ПАНЕЛЬ НАВІГАЦІЇ                    */
+/* ================================================= */
+.horiz-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.horiz-nav > ul {
+    list-style-type: none;
+}
+
+.horiz-nav > ul > li {
+    position: relative;
+    float: left; /* Перший рівень в рядок */
+}
+
+/* Вирівнювання останнього пункту праворуч */
+.horiz-nav > ul > li.float-right {
+    float: right;
+}
+
+.horiz-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Активний пункт та наведення */
+.horiz-nav .active {
+    background-color: #4CAF50; /* Зелений за прикладом */
+}
+
+.horiz-nav li:hover > a {
+    background-color: #555;
+}
+
+.horiz-nav li.active:hover > a {
+    background-color: #45a049;
+}
+
+/* Випадаючі списки горизонтального меню */
+.horiz-nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: #444;
+    list-style-type: none;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1001;
+}
+
+.horiz-nav ul ul li {
+    float: none; /* У випадаючому списку пункти вертикальні */
+    position: relative;
+}
+
+/* Багаторівневість (2-й та 3-й рівні випадають праворуч) */
+.horiz-nav ul ul ul {
+    top: 0;
+    left: 100%;
+}
+
+.horiz-nav li:hover > ul {
+    display: block;
+}
+
+/* Очищення float для контейнера */
+.horiz-nav > ul::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* ================================================= */
+/* ВЕРТИКАЛЬНА ПАНЕЛЬ НАВІГАЦІЇ                      */
+/* ================================================= */
+.vert-nav {
+    position: fixed;
+    top: 60px; /* Починається одразу під горизонтальним меню */
+    left: 0;
+    width: 220px;
+    height: calc(100% - 60px); /* Повна висота екрана мінус шапка */
+    background-color: #007acc; /* Синій колір за прикладом */
+    overflow-y: auto;
+    z-index: 999;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+.vert-nav ul {
+    list-style-type: none;
+}
+
+.vert-nav li {
+    position: relative;
+}
+
+.vert-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Активний елемент вертикального меню */
+.vert-nav .active-vert > a {
+    background-color: #005999;
+}
+
+.vert-nav li:hover > a {
+    background-color: #005f9e;
+}
+
+/* Випадаючі підменю вертикального меню (2-й та 3-й рівні) */
+.vert-nav ul ul {
+    display: none;
+    background-color: #0066aa;
+}
+
+.vert-nav ul ul a {
+    padding-left: 30px; /* Відступ для ієрархії */
+}
+
+.vert-nav ul ul ul a {
+    padding-left: 45px;
+}
+
+/* Показувати вкладені списки при наведенні */
+.vert-nav li:hover > ul {
+    display: block;
+}
+
+/* Додатковий контент для демонстрації прокрутки */
+.content {
+    padding: 20px;
+}
+h1 { margin-bottom: 15px; }
+p { margin-bottom: 10px; color: #555; }

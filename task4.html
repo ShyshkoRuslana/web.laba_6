@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реєстрація на курс</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+<!-- ГОРИЗОНТАЛЬНА ПАНЕЛЬ НАВІГАЦІЇ -->
+<nav class="horiz-nav">
+    <ul>
+        <!-- Активний пункт з іконкою Home (вирівняний за зразком зліва) -->
+        <li class="active"><a href="#"><i class="material-icons">home</i></a></li>
+
+        <!-- Звичайні пункти з іконками -->
+        <li>
+            <a href="#"><i class="material-icons">search</i></a>
+            <!-- Випадаюче меню 2 рівня -->
+            <ul>
+                <li><a href="#">Розширений пошук</a></li>
+                <li><a href="#">Пошук за тегами</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#"><i class="material-icons">mail</i></a>
+            <ul>
+                <li><a href="#">Вхідні</a></li>
+                <li><a href="#">Надіслати</a>
+                    <!-- Випадаюче меню 3 рівня -->
+                    <ul>
+                        <li><a href="#">Чернетки</a></li>
+                        <li><a href="#">Архів</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Останній пункт меню, вирівняний праворуч через float -->
+        <li class="float-right"><a href="#"><i class="material-icons">settings</i></a></li>
+    </ul>
+</nav>
+
+
+<!-- ВЕРТИКАЛЬНА ПАНЕЛЬ НАВІГАЦІЇ (з трьома рівнями вкладеності) -->
+<nav class="vert-nav">
+    <ul>
+        <!-- 1 рівень: Іконка + Назва -->
+        <li class="active-vert">
+            <a href="#"><i class="material-icons">home</i> Home</a>
+            <!-- 2 рівень вкладеності -->
+            <ul>
+                <li><a href="#">Головна сторінка</a></li>
+                <li>
+                    <a href="#">Новини компанії</a>
+                    <!-- 3 рівень вкладеності -->
+                    <ul>
+                        <li><a href="#">Архів новин</a></li>
+                        <li><a href="#">Прес-релізи</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#"><i class="material-icons">article</i> About</a>
+            <ul>
+                <li><a href="#">Наша команда</a></li>
+                <li><a href="#">Історія</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#"><i class="material-icons">free_breakfast</i> Work With Me</a>
+            <ul>
+                <li><a href="#">Вакансії</a></li>
+                <li><a href="#">Контакти</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+<!-- Контент сторінки -->
+<div class="content">
+    <h1>Демонстрація навігаційних панелей</h1>
+    <p>Горизонтальна панель зафіксована зверху сторінки (`position: fixed`), а її останній пункт вирівняно праворуч за допомогою `float: right`.</p>
+    <p>Вертикальна панель має повну висоту екрана та містить три рівні вкладеності списків (`ul` > `ul` > `ul`).</p>
+    <p>Прокрутіть сторінку вниз, щоб переконатися, що панелі залишаються зафіксованими.</p>
+</div>
+</body>
+</html>
+
