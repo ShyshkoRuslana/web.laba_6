@@ -1,0 +1,122 @@
+/* Загальні налаштування сторінки */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #bebebe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Головна контейнерна область */
+.weather-card-wrapper {
+    position: relative;
+    width: 450px;
+    height: 400px;
+}
+
+/* 1. Чорний головний блок з тінню */
+.main-card {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    width: 260px;
+    height: 260px;
+    background-color: #000000;
+    z-index: 2;
+    /* Властивість box-shadow для тіні навколо та знизу */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    overflow: visible; /* Щоб хмара заходила за межі блоку */
+}
+
+/* Текст температури у чорному блоці */
+.main-temp {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: #ffffff;
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Зображення / елемент хмари з накладанням поверх двох блоків */
+.cloud-img {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    width: 280px;
+    z-index: 4; /* Найвищий z-index, щоб хмара була над усім */
+    pointer-events: none;
+    /* Імітація об'єму та ефекту м'якості хмари */
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+}
+
+/* 2. Блок навігації з прозорістю (ліворуч) */
+.nav-buttons {
+    position: absolute;
+    top: 90px;
+    left: 10px;
+    width: 90px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.35); /* Прозорість через RGBA */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 3; /* Вище ніж main-card */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* Властивість opacity для прозорості всього блоку */
+    opacity: 0.85;
+    backdrop-filter: blur(2px);
+}
+
+.nav-arrow {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* 3. Нижній світлий блок з прогнозом на тиждень */
+.forecast-card {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    width: 240px;
+    background-color: #d8d8d8;
+    padding: 15px;
+    z-index: 1; /* Нижній шар */
+    /* Тінь для світлого блоку */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+}
+
+.forecast-grid {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.day-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.day-name {
+    font-size: 12px;
+    color: #777;
+}
+
+.day-temp {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+}
