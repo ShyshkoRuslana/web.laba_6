@@ -1,0 +1,231 @@
+/* Загальні стилі та скидання */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    height: 100vh;
+}
+
+/* Верхня панель (шапка) */
+.header-container {
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 15px;
+}
+
+/* Інтерактивні посилання та елементи шапки */
+.nav-link {
+    color: #3c4043;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.nav-link:hover, .notification-icon:hover {
+    background-color: #f1f3f4;
+}
+
+.nav-link:focus, .notification-icon:focus, .user-avatar:focus, .popup-button:focus {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+}
+
+.notification-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background-image: url('https://i.imgur.com/8Km9tLL.png'); /* заглушка для аватарки */
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Прихований чекбокс керування попапом (збережено можливість фокусу) */
+.popup-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+/* Кнопка відкриття попапу (вигляд сітки іконок Google) */
+.popup-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup-button:hover {
+    background-color: #f1f3f4;
+}
+
+/* ПОЧАТКОВИЙ СТАН: попап невидимий і вилучений з порядку табуляції */
+.popup-container {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 340px;
+    max-height: 480px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 100;
+    overflow-y: auto;
+    outline: none; /* для фокусу з клавіатури */
+}
+
+/* АКТИВНИЙ СТАН: при активації чекбокса попап стає видимим */
+.popup-checkbox:checked ~ .popup-container {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Стрілочка зверху попапу */
+.popup-container::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 32px;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.04);
+}
+
+/* Вміст попапу */
+.popup-content {
+    padding: 24px 16px;
+}
+
+/* Сітка іконок */
+.popup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 8px;
+    text-align: center;
+}
+
+/* Елемент іконки у попапі */
+.popup-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 12px 4px;
+    border-radius: 16px;
+    transition: background 0.2s;
+}
+
+.popup-item img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+}
+
+.item-text {
+    font-size: 12px;
+    color: #3c4043;
+}
+
+/* Вимоги: hover та focus для інтерактивних елементів у попапі */
+.popup-item:hover {
+    background-color: #f1f3f4;
+}
+
+.popup-item:focus {
+    outline: none;
+    background-color: #f1f3f4;
+    border: 1px solid #1a73e8;
+}
+
+/* Кнопка "More" */
+.more-checkbox {
+    display: none; /* прихований чекбокс розширення */
+}
+
+.more-button, .more-button-expanded {
+    display: block;
+    text-align: center;
+    background-color: #f8f9fa;
+    color: #3c4043;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px;
+    margin-top: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #dadce0;
+}
+
+.more-button:hover, .more-button-expanded:hover {
+    background-color: #f1f3f4;
+}
+
+.more-button:focus, .more-button-expanded:focus {
+    outline: 2px solid #1a73e8;
+}
+
+/* Додаткові іконки спочатку приховані */
+.more-grid {
+    display: none;
+    margin-top: 16px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 16px;
+}
+
+.more-button-expanded {
+    display: none;
+}
+
+/* СТАН SCROLLABLE (після натискання More) */
+.more-checkbox:checked ~ .more-grid {
+    display: grid;
+}
+
+.more-checkbox:checked ~ .more-button {
+    display: none;
+}
+
+.more-checkbox:checked ~ .more-button-expanded {
+    display: block;
+}
+
+/* Якщо чекбокс More активовано, контейнер стає доступним для прокрутки */
+.more-checkbox:checked ~ .popup-container,
+.popup-checkbox:checked ~ .popup-container:focus {
+    outline: 1px solid #dadce0;
+}

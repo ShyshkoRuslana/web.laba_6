@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота - Попап без JS</title>
+    <link rel="stylesheet" href="style6.css">
+</head>
+<body>
+
+<header class="header-container">
+    <div class="header-nav">
+        <a href="#" class="nav-link" tabindex="0">Mail</a>
+        <a href="#" class="nav-link" tabindex="0">Images</a>
+
+        <!-- Чекбокс для відкриття/закриття попапу (схований, але доступний для фокусу) -->
+        <input type="checkbox" id="popup-toggle" class="popup-checkbox">
+
+        <!-- Кнопка попапу (label, що керує чекбоксом) -->
+        <label for="popup-toggle" class="popup-button" tabindex="0" title="Google apps">
+            <svg class="icon-grid" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="#5f6368" d="M6,8 C7.1045695,8 8,7.1045695 8,6 C8,4.8954305 7.1045695,4 6,4 C4.8954305,4 4,4.8954305 4,6 C4,7.1045695 4.8954305,8 6,8 Z M12,8 C13.1045695,8 14,7.1045695 14,6 C14,4.8954305 13.1045695,4 12,4 C10.8954305,4 10,4.8954305 10,6 C10,7.1045695 10.8954305,8 12,8 Z M18,8 C19.1045695,8 20,7.1045695 20,6 C20,4.8954305 19.1045695,4 18,4 C16.8954305,4 16,4.8954305 16,6 C16,7.1045695 16.8954305,8 18,8 Z M6,14 C7.1045695,14 8,13.1045695 8,12 C8,10.8954305 7.1045695,10 6,10 C4.8954305,10 4,10.8954305 4,12 C4,13.1045695 4.8954305,14 6,14 Z M12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 Z M18,14 C19.1045695,14 20,13.1045695 20,12 C20,10.8954305 19.1045695,10 18,10 C16.8954305,10 16,10.8954305 16,12 C16,13.1045695 16.8954305,14 18,14 Z M6,20 C7.1045695,20 8,19.1045695 8,18 C8,16.8954305 7.1045695,16 6,16 C4.8954305,16 4,16.8954305 4,18 C4,19.1045695 4.8954305,20 6,20 Z M12,20 C13.1045695,20 14,19.1045695 14,18 C14,16.8954305 13.1045695,16 12,16 C10.8954305,16 10,16.8954305 10,18 C10,19.1045695 10.8954305,20 12,20 Z M18,20 C19.1045695,20 20,19.1045695 20,18 C20,16.8954305 19.1045695,16 18,16 C16.8954305,16 16,16.8954305 16,18 C16,19.1045695 16.8954305,20 18,20 Z"></path>
+            </svg>
+        </label>
+
+        <a href="#" class="nav-link notification-icon" tabindex="0" title="Notifications">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#5f6368" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4v6z"/></svg>
+        </a>
+        <div class="user-avatar" tabindex="0"></div>
+
+        <!-- САМ ПОПАП -->
+        <div class="popup-container" tabindex="0">
+            <div class="popup-content">
+
+                <!-- Основна сітка іконок (перші 9) -->
+                <div class="popup-grid">
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/calendar_48dp.png" alt="Calendar">
+                        <span class="item-text">Calendar</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/gmail_48dp.png" alt="Mail">
+                        <span class="item-text">Mail</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/news_48dp.png" alt="News">
+                        <span class="item-text">News</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://maps.gstatic.com/tactile/omnibox/maps_alt_dark_2x.png" alt="Map">
+                        <span class="item-text">Map</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/drive_48dp.png" alt="Files">
+                        <span class="item-text">Files</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/contacts_48dp.png" alt="Contacts">
+                        <span class="item-text">Contacts</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/translate_48dp.png" alt="Translate">
+                        <span class="item-text">Translate</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/youtube_48dp.png" alt="Videos">
+                        <span class="item-text">Videos</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/icons/material/product/1x/search_64dp.png" alt="Search">
+                        <span class="item-text">Search</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/photos_48dp.png" alt="Photo">
+                        <span class="item-text">Photo</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/chrome_48dp.png" alt="Apps">
+                        <span class="item-text">Apps</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/docs_48dp.png" alt="Document">
+                        <span class="item-text">Document</span>
+                    </a>
+                </div>
+
+                <!-- Чекбокс для стану "More" (розгортання додаткових іконок) -->
+                <input type="checkbox" id="more-toggle" class="more-checkbox">
+
+                <!-- Кнопка "More" -->
+                <label for="more-toggle" class="more-button" tabindex="0">More</label>
+
+                <!-- Додаткові іконки (від 3 до 10, з'являються при натисканні More) -->
+                <div class="popup-grid more-grid">
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/chat_48dp.png" alt="Chat">
+                        <span class="item-text">Chat</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png" alt="Classroom">
+                        <span class="item-text">Classroom</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/collections_48dp.png" alt="Collection">
+                        <span class="item-text">Collection</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/earth_48dp.png" alt="Mars">
+                        <span class="item-text">Mars</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/blogger_48dp.png" alt="Blogs">
+                        <span class="item-text">Blogs</span>
+                    </a>
+                    <a href="#" class="popup-item" tabindex="0">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/podcasts_48dp.png" alt="Promos">
+                        <span class="item-text">Promos</span>
+                    </a>
+                </div>
+
+                <label for="more-toggle" class="more-button-expanded" tabindex="0">Even more from Kottans</label>
+
+            </div>
+        </div>
+
+    </div>
+</header>
+
+</body>
+</html>
